@@ -1,6 +1,6 @@
 # News-Up(APP)
 
-This Project is on News-Up known as News APP , made by using FLutter and Dart and with features such as webviewing the news , Sharing the new , Seeing the Categorical News.
+This Project is on News-Up known as News APP , made by using FLutter and Dart and with features webviewing the news , Sharing the new , Seeing the Categorical News.
 
 ## Screenshots
 
