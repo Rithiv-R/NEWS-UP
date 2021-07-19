@@ -1,10 +1,34 @@
-# News-App
+# News-Up(APP)
 
-This project is based on News app called News-Up using News API and made by using flutter and dart.In this flutter project webview , share option of the news and category view news viewing option is also enabled.
+This Project is on News-Up known as News APP , made by using FLutter and Dart and with features such as webviewing the news , Sharing the new , Seeing the Categorical News.
 
 ## Screenshots
 
-![HOME](assets/image1.jpg)
+### HOME
+
+![HOME](assets/home.jpg)
+
+### CATEGORIES
+
+#### PART1
+
+![CATEGORY1](assets/category1.jpg)
+
+#### PART2
+
+![CATEGORY2](assets/category2.jpg)
+
+### SIDEBAR
+
+![SIDEBAR](assets/sidebar.jpg)
+
+### CATEGORY VIEW
+
+![CATEGORY](assets/opener.jpg)
+
+### WEBVIEW
+
+![WEBVIEW](assets/webview.jpg)
 
 ## Getting Started
 
