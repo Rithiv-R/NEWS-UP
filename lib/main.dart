@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
 
   fetchdata() async {
     http.Response response = await http.get(Uri.parse(
-        'https://newsapi.org/v2/top-headlines?country=in&pagesize=100&apiKey={yourapi}'));
+        'https://newsapi.org/v2/top-headlines?country=in&pagesize=100&apiKey={Your API}'));
     setState(() {
       var article = jsonDecode(response.body);
       if (article['status'] == 'ok') {

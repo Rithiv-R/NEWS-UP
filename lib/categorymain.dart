@@ -26,7 +26,7 @@ class _OpenerState extends State<Opener> {
 
   fetchdata(String category) async {
     http.Response response = await http.get(Uri.parse(
-        'https://newsapi.org/v2/top-headlines?country=in&category=$category&pagesize=100&apiKey={your API key}'));
+        'https://newsapi.org/v2/top-headlines?country=in&category=$category&pagesize=100&apiKey={Your API}'));
     setState(() {
       var article = jsonDecode(response.body);
       if (article['status'] == 'ok') {
