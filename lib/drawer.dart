@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newsapp/categories.dart';
 import 'package:newsapp/main.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
@@ -25,9 +26,15 @@ class NavigationDrawerWidget extends StatelessWidget {
                 text: 'Home',
               ),
             ),
-            ButtonTile(
-              icon: Icons.category,
-              text: 'Category',
+            GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Category()));
+              },
+              child: ButtonTile(
+                icon: Icons.category,
+                text: 'Category',
+              ),
             ),
             ButtonTile(
               icon: Icons.settings,

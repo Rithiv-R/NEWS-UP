@@ -1,43 +1,32 @@
+import 'package:easy_gradient_text/easy_gradient_text.dart';
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
-import 'package:easy_gradient_text/easy_gradient_text.dart';
-import 'package:newsapp/drawer.dart';
-import 'package:http/http.dart' as http;
-import 'package:newsapp/model/newsmodel.dart';
+import 'package:newsapp/model/categoryspecificmodel.dart';
 import 'package:newsapp/view/webview.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
+class Opener extends StatefulWidget {
+  String topic;
+  Opener({this.topic});
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'NEWS-UP',
-      home: HomePage(),
-    );
-  }
+  _OpenerState createState() => _OpenerState();
 }
 
-class HomePage extends StatefulWidget {
+class _OpenerState extends State<Opener> {
+  String t1;
+  List<CategorySpecific> mode = [];
   @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  List<Newsmodel> mode = [];
   void initState() {
     // TODO: implement initState
-    fetchdata();
+    fetchdata(widget.topic);
     super.initState();
+    t1 = widget.topic.toUpperCase();
   }
 
-  fetchdata() async {
+  fetchdata(String category) async {
     http.Response response = await http.get(Uri.parse(
-        'https://newsapi.org/v2/top-headlines?country=in&pagesize=100&apiKey=80e3f97a7bd24543a5ba6e8d8f2633a8'));
+        'https://newsapi.org/v2/top-headlines?country=in&category=$category&pagesize=100&apiKey=80e3f97a7bd24543a5ba6e8d8f2633a8'));
     setState(() {
       var article = jsonDecode(response.body);
       if (article['status'] == 'ok') {
@@ -47,7 +36,7 @@ class _HomePageState extends State<HomePage> {
               element['title'] != null &&
               element['author'] != null &&
               element['url'] != null) {
-            Newsmodel nw = Newsmodel(
+            CategorySpecific nw = CategorySpecific(
               title: element['title'],
               description: element['description'],
               content: element['content'],
@@ -62,20 +51,31 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: NavigationDrawerWidget(),
         appBar: AppBar(
           backgroundColor: Colors.white,
           title: Container(
-            child: GradientText(
-              text: 'NEWS-UP',
-              colors: <Color>[Color(0xff35C8F6), Color(0xff35C8F6)],
-              style: TextStyle(
-                fontSize: 20.0,
-                fontFamily: 'Rakkas',
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                GradientText(
+                  text: 'NEWS-UP',
+                  colors: <Color>[Color(0xff35C8F6), Color(0xff35C8F6)],
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontFamily: 'Rakkas',
+                  ),
+                ),
+                Text(
+                  '($t1)',
+                  style: TextStyle(
+                      fontSize: 15.0,
+                      color: Color(0xff7F4AEF),
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Rakkas'),
+                ),
+              ],
             ),
           ),
           elevation: 1.0,
