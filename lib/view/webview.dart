@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:easy_gradient_text/easy_gradient_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:share/share.dart';
 
 class Webviewer extends StatefulWidget {
   String weburl;
@@ -27,6 +28,11 @@ class _WebviewerState extends State<Webviewer> {
             ),
           ),
         ),
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(Icons.share),
+              onPressed: () => Share.share(widget.weburl)),
+        ],
         iconTheme: IconThemeData(color: Color(0xff35C8F6)),
       ),
       url: widget.weburl,

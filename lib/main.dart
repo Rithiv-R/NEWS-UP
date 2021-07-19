@@ -37,7 +37,7 @@ class _HomePageState extends State<HomePage> {
 
   fetchdata() async {
     http.Response response = await http.get(Uri.parse(
-        'https://newsapi.org/v2/top-headlines?country=in&pagesize=100&apiKey=80e3f97a7bd24543a5ba6e8d8f2633a8'));
+        'https://newsapi.org/v2/top-headlines?country=in&pagesize=100&apiKey={yourapi}'));
     setState(() {
       var article = jsonDecode(response.body);
       if (article['status'] == 'ok') {
@@ -117,6 +117,7 @@ class BlogTile extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.all(10),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
               title,
@@ -145,7 +146,7 @@ class BlogTile extends StatelessWidget {
             ),
             Divider(
               height: 3,
-              thickness: 2,
+              thickness: 3,
             )
           ],
         ),

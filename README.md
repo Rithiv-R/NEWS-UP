@@ -1,6 +1,6 @@
 # News-App
 
-This project is based on News app called News-Up using News API and made by using flutter and dart.In this flutter webview plugin is also added in the dependencies.
+This project is based on News app called News-Up using News API and made by using flutter and dart.In this flutter project webview , share option of the news and category view news viewing option is also enabled.
 
 ## Screenshots
 
